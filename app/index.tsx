@@ -1,19 +1,12 @@
-import { Text, View } from "react-native";
-import { SafeAreaView } from "react-native-safe-area-context";
+import { useAuth } from "@clerk/clerk-expo";
+import { Redirect } from "expo-router";
 
-export default function Index() {
-  return (
-    <SafeAreaView
-      // style={{
-      //   flex: 1,
-      //   justifyContent: "center",
-      //   alignItems: "center",
-      // }}
-      className={"flex justify-center items-center "}
-    >
-      <Text className="text-red-400">
-        Edit app/index.tsx to edit this screen.sssss
-      </Text>
-    </SafeAreaView>
-  );
-}
+const HomePage = () => {
+  const { isSignedIn } = useAuth();
+
+  if (isSignedIn) return <Redirect href="/(root)/(tabs)/home" />;
+
+  return <Redirect href="/(auth)/welcome" />;
+};
+
+export default HomePage;
