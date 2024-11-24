@@ -5,6 +5,7 @@ import { useEffect } from "react";
 import "../styles/global.css";
 import { ClerkLoaded, ClerkProvider } from "@clerk/clerk-expo";
 import "react-native-reanimated";
+import "react-native-get-random-values";
 import { LogBox } from "react-native";
 import { tokenCache } from "@/lib/auth";
 
@@ -50,19 +51,19 @@ export default function RootLayout() {
             name="index"
             options={{
               // title: "Index",
-              headerShown: true,
+              headerShown: false,
             }}
           />
           <Stack.Screen
             name="(auth)"
             options={{
-              headerShown: true,
+              headerShown: false,
             }}
           />
           <Stack.Screen
             name="(root)"
             options={{
-              headerShown: true,
+              headerShown: false,
             }}
           />
           <Stack.Screen
